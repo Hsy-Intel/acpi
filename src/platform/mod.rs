@@ -5,8 +5,6 @@ use crate::{fadt::Fadt, madt::Madt, AcpiError, AcpiHandler, AcpiTables, PowerPro
 use address::GenericAddress;
 use alloc::vec::Vec;
 use interrupt::InterruptModel;
-use tdx_tdcall::serial_print;
-use tdx_tdcall::serial::serial;
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ProcessorState {
     /// A processor in this state is unusable, and you must not attempt to bring it up.

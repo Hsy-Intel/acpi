@@ -23,9 +23,6 @@ categories = [
 license = "MIT/Apache-2.0"
 repository = "https://github.com/rust-osdev/acpi"
 
-[dependencies]
-tdx-tdcall = { path = "../../libs/tdx-tdcall" }
-
 [dependencies.bit_field]
 version = "0.10"
 
