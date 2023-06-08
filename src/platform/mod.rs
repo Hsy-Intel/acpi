@@ -88,12 +88,10 @@ impl PlatformInfo {
         // let power_profile = fadt.power_profile();
         let power_profile = PowerProfile::EnterpriseServer;
         let madt = unsafe { tables.get_sdt::<Madt>(crate::sdt::Signature::MADT)? };
-        serial_print!("start parse interrupt model\n");
         let (interrupt_model, processor_info) = match madt {
             Some(madt) => madt.parse_interrupt_model()?,
             None => (InterruptModel::Unknown, None),
         };
-        serial_print!("parse interrupt model successfully\n");
         // let pm_timer = PmTimer::new(&fadt)?;
         let pm_timer = None;
         Ok(PlatformInfo { power_profile, interrupt_model, processor_info, pm_timer })
